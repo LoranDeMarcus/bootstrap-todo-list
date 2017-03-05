@@ -3,6 +3,7 @@
 $('#new-todo').keyup(function(e){ console.log(e.keyCode);
     if(e.keyCode==13){
         $('#main').show();
+        $('#footer').show();
         $('#todo-list').append('<li>\
                 <div class="view">\
                     <input class="toggle" type="checkbox">'+$(this).val()+'<label> </label>\
