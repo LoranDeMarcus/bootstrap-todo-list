@@ -15,6 +15,6 @@ $('#new-todo').keyup(function(e){ console.log(e.keyCode);
 
 /* Удаление */
 
-$('#todo-list').on('click','button.delete',function(){
+$('#todo-list').on('click','button.destroy',function(){
     $(this).parent().parent().remove();
 });
