@@ -85,6 +85,8 @@ input:-ms-input-placeholder {opacity: 0.5; font-style: italic}
 }
 
 input[type="checkbox"] {
+    position: relative;
+    left: 2px;
     outline: none;
     box-sizing: border-box;
     margin: 3px 3px 3px 4px;
