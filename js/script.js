@@ -1,10 +1,11 @@
-/* Добавление элемента списка */
+/* Добавление элементов списка */
 
 var tasks = [];
 
 $('#new-todo').keyup(function(e){ console.log(e.keyCode);
 
     if (e.keyCode==13){
+        var $this = $(this);
         $('#main').show();
         $('#footer').show();
         $('#todo-list').append('<li>\
@@ -14,9 +15,7 @@ $('#new-todo').keyup(function(e){ console.log(e.keyCode);
                 </div>\
            </li>');
         // Добавление в массив
-        $('label.text').each(function(){
-            tasks.push($(this).text());
-        });
+        tasks.push($this.val());
         // Очистка Input
         $('#new-todo').val('');
     }
@@ -24,9 +23,7 @@ $('#new-todo').keyup(function(e){ console.log(e.keyCode);
 
 /* Удаление */
 
-$('#todo-list').on('click','button.destroy',function(){
+$('#todo-list').on('click','button.destroy', function(){
     $(this).parent().parent().remove();
-    if ((tasks) < 1 ) {
-        $('#footer').hide();
-    }
 });
+
