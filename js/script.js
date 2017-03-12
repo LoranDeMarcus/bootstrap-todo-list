@@ -24,6 +24,13 @@ $('#new-todo').keyup(function(e){ console.log(e.keyCode);
 /* Удаление */
 
 $('#todo-list').on('click','button.destroy', function(){
-    $(this).parent().parent().remove();
+    var index = $(this).parent().find('label').text();
+    if( tasks.indexOf(index) > -1 ){
+        tasks.splice( tasks.indexOf( index ), 1);
+        $(this).parent().parent().remove();
+    }
+    if ( tasks.indexOf(index) < 1 ) {
+        $('#footer').hide();
+    }
 });
 
