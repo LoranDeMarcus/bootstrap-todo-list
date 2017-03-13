@@ -2,7 +2,7 @@
 
 var tasks = [];
 
-$('#new-todo').keyup(function(event){
+$('#new-todo').keyup(function(event) {
 
     if (event.keyCode==13){
         $('#main').show();
@@ -13,6 +13,10 @@ $('#new-todo').keyup(function(event){
                     <button class="destroy"></button>\
                 </div>\
            </li>');
+        // Добавление id
+
+        //Счетчик задач
+        $('strong').text(tasks.length + 1);
         // Добавление в массив
         var $this = $(this);
         var newTask = $this.val();
@@ -22,16 +26,14 @@ $('#new-todo').keyup(function(event){
     }
 });
 
-// Счетчик задач
-$(".todo-count").append('<strong>' + tasks.length + '</strong> items left');
-
 /* Удаление */
 
-$('#todo-list').on('click','button.destroy', function(){
+$('#todo-list').on('click','button.destroy', function() {
     var $li = $(this).closest('li');
     tasks.splice($li.index(), 1);
     $li.remove();
-    if ( tasks[0] == 0 ) {
+    $('strong').text(tasks.length);
+    if ( tasks.length < 1 ) {
         $('#footer').hide();
     }
 });
