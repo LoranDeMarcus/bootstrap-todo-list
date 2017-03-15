@@ -24,19 +24,22 @@ $( '#new-todo' ).keyup( function( event ) {
     }
 });
 
-// Checkbox
+/* Checkbox */
 
-$( 'li' ).on( 'click', 'input.checkbox', function () {
-    $( this ).toggleClass( 'checked' )
+
+$('#todo-list .toggle').on('change', function() {
+    $(this).parents('li').toggleClass('checked');
+});
+
+$('#toggle-all').on('change', function() {
+    if($('#todo-list .toggle:checked').length == $('#todo-list .toggle').length){
+        $('#todo-list .toggle').prop('checked', false);
+        $('#todo-list li').removeClass('checked');
+    }else{
+        $('#todo-list .toggle').prop('checked', true);
+        $('#todo-list li').addClass('checked');
+    };
 })
-
-
-/* Проверка Checkbox
-
-if ($( 'input.toggle' ).is( ':checked' )) {
-
-}
-*/
 
 /* Удаление */
 
