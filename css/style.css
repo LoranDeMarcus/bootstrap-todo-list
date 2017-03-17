@@ -147,6 +147,14 @@ li {
     content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>')
 }
 
+#todo-list li.checked label {
+    color: #d9d9d9;
+    text-decoration: line-through;
+} {
+    color: #eef;
+    text-decoration:line-through;
+}
+
 #todo-list li label {
     box-sizing: border-box;
     white-space: pre-line;
@@ -272,6 +280,19 @@ li {
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
+}
+
+#clear-completed, html #clear-completed:active {
+    position: relative;
+    float: right;
+    line-height: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+
+#clear-completed:hover {
+    text-decoration: underline;
 }
 
 /* FOOTER */
