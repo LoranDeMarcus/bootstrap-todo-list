@@ -1,6 +1,18 @@
 var tasks = [];
 var i = 0;
-
+function updateTasks() {
+    var $li = $(this).closest('li');
+    $li.remove();
+    tasks.forEach(function (title, id, tasks) {
+        tasks.splice(i, 1);
+    });
+    $('#todo-list').append('<li class="completed">\
+            <div class="todo-task">\
+            <label class="text"><input class="toggle" type="checkbox">'+ tasks[i].title +'</label>\
+            <button class="destroy"></button>\
+            </div>\
+            </li>');
+}
 /* Добавление элементов списка */
 
 $('#new-todo').keyup(function (event) {
@@ -15,6 +27,7 @@ $('#new-todo').keyup(function (event) {
         tasks.push({id: i++, title: newTask, status: 'active'});
         // Очистка Input
         $('#new-todo').val('');
+        updateTasks();
     }
 });
 
@@ -44,12 +57,7 @@ if ($('.completed').hasClass('checked')) {
 /* Удаление */
 
 $('#todo-list').on('click', 'button.destroy', function () {
-    for (var idx in tasks) {
-        delete tasks[idx];
-        var $li = $(this).closest('li');
-        $li.remove();
-    }
-
+    updateTasks();
     $('.count').text(tasks.length);
     if (tasks.length < 1) {
         $('#footer').hide();
@@ -67,6 +75,7 @@ $('#todo-list').append('<li class="completed">\
             </div>\
             </li>');
 
-
+ var $li = $(this).closest('li');
+ $li.remove();
  tasks.splice($li.index(), 1);
  */
