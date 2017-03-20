@@ -31,21 +31,18 @@ $('#new-todo').keyup(function (event) {
 
 /* Checkbox */
 
-$('#todo-list label').on('change', function () {
-    console.log('id')
-    updateTasks();
+$('#todo-list .toggle').on('change', function() {
+    $(this).parents('li').toggleClass('checked');
 });
 
 $('#toggle-all').on('change', function () {
     if ($('#todo-list .toggle:checked').length == $('#todo-list .toggle').length) {
         $('#todo-list .toggle').prop('checked', false);
         $('#todo-list li').removeClass('checked');
-        $(this).data("status", "active")
     }
     else {
         $('#todo-list .toggle').prop('checked', true);
         $('#todo-list li').addClass('checked');
-        $(this).data("status", "checked")
     }
 });
 
@@ -75,6 +72,8 @@ $('#todo-list').on('click', 'button.destroy', function () {
  <button class="destroy"></button>\
  </div>\
  </li>');
+
+ $(this).parents('li').toggleClass('checked');
 
  var $li = $(this).closest('li');
  $li.remove();
