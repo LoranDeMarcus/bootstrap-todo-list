@@ -56,6 +56,9 @@ if ($('.completed').hasClass('checked')) {
 /* Удаление */
 
 $('#todo-list').on('click', 'button.destroy', function () {
+    var $li = $(this).closest('li');
+    $li.remove();
+    tasks.splice($li.index(), 1);
     $('.count').text(tasks.length);
     if (tasks.length < 1) {
         $('#footer').hide();
