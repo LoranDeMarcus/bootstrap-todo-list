@@ -8,7 +8,7 @@ $('#new-todo').keyup(function (event) {
         if ($(this).val() !== '') {
             $('#main').show();
             $('#footer').show();
-            $('#todo-list').append('<li class="complete" data-id="'+ i +'">\
+            $('#todo-list').append('<li class="complete" data-id="' + i + '">\
             <div class="todo-task">\
             <label class="text"><input class="toggle" type="checkbox">' + $(this).val() + '</label>\
             <button class="destroy"></button>\
@@ -49,7 +49,8 @@ $('#toggle-all').on('change', function () {
 
 if ($('.complete').hasClass('checked')) {
     $('#footer').append('<button id="clear-completed">Clear completed</button>');
-};
+}
+;
 
 /* Удаление */
 
@@ -62,7 +63,6 @@ $('#todo-list').on('click', 'button.destroy', function () {
         $('#footer').hide();
     }
 });
-
 
 /* Временное хранилище
 
