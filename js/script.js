@@ -30,16 +30,21 @@ $('#new-todo').keyup(function (event) {
 
 /* Checkbox */
 
-$('#todo-list .toggle').on('change', function () {
-    console.log('something');
-})
+$('#todo-list').on('change', '.toggle', function() {
+    $(this).parents('li').toggleClass('checked');
+    if( $('#todo-list .toggle:checked').length == $('#todo-list .toggle').length ){
+        $('#toggle-all').prop('checked', true);
+    } else {
+        $('#toggle-all').prop('checked', false);
+    };
+});
 
-$('#toggle-all').on('change', function () {
+
+$('#toggle-all').on('click', function () {
     if ($('#todo-list .toggle:checked').length == $('#todo-list .toggle').length) {
         $('#todo-list .toggle').prop('checked', false);
         $('#todo-list li').removeClass('checked');
-    }
-    else {
+    } else {
         $('#todo-list .toggle').prop('checked', true);
         $('#todo-list li').addClass('checked');
     }
@@ -47,10 +52,9 @@ $('#toggle-all').on('change', function () {
 
 /* События кнопки Clear Completed */
 
-if ($('.complete').hasClass('checked')) {
+if ($('li.complete').hasClass('checked')) {
     $('#footer').append('<button id="clear-completed">Clear completed</button>');
-}
-;
+};
 
 /* Удаление */
 
@@ -65,8 +69,8 @@ $('#todo-list').on('click', 'button.destroy', function () {
 });
 
 /* Временное хранилище
-
- $('#todo-list .complete .toggle .todo-task .text').on('click', function() {
- $(this).parents('li').toggleClass('checked');
- console.log('id');
+ $('#clear-completed').on('click', function () {
+ $('li.checked').remove();
+ tasks.splice
+ });
  */
