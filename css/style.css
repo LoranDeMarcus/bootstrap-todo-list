@@ -285,7 +285,7 @@ li {
     border-color: rgba(175, 47, 47, 0.2);
 }
 
-#filters li a.selected, #filters li a:hover {
+#filters li a:hover {
     border-color: rgba(175, 47, 47, 0.1);
 }
 
@@ -298,7 +298,7 @@ li {
     border-radius: 3px;
 }
 
-#clear-completed, html #clear-completed:active {
+#clear-completed {
     position: relative;
     float: right;
     line-height: 20px;
@@ -307,9 +307,6 @@ li {
     outline: none;
 }
 
-#clear-completed:hover {
-    text-decoration: underline;
-}
 
 /* FOOTER */
 footer {
