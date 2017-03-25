@@ -65,7 +65,6 @@ $('#toggle-all').on('click', function () {
     }
 });
 
-
 /* События отображения событий */
 
 $('.show-all-tasks').on('click', function() {
