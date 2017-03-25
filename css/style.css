@@ -281,7 +281,11 @@ li {
     text-align: -webkit-match-parent;
 }
 
-#filters li a.selected {
+#filters li a.active{
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+#filters li a:active {
     border-color: rgba(175, 47, 47, 0.2);
 }
 
