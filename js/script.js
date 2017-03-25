@@ -30,15 +30,22 @@ $('#new-todo').keyup(function (event) {
 
 /* Checkbox */
 
-$('#todo-list').on('change', '.toggle', function() {
+$('#todo-list').on('click', '.toggle', function() {
     $(this).parents('li').toggleClass('checked');
     if( $('#todo-list .toggle:checked').length == $('#todo-list .toggle').length ){
         $('#toggle-all').prop('checked', true);
     } else {
         $('#toggle-all').prop('checked', false);
-    };
-});
+    }
+    for (i in tasks) {
+        if ($('li .toggle').hasClass('checked')) {
+            var taskId = $(this).data('id');
+            taskId.data('status', 'completed');
+            console.log(tasks);
+        }
+    }
 
+});
 
 $('#toggle-all').on('click', function () {
     if ($('#todo-list .toggle:checked').length == $('#todo-list .toggle').length) {
@@ -67,10 +74,3 @@ $('#todo-list').on('click', 'button.destroy', function () {
         $('#footer').hide();
     }
 });
-
-/* Временное хранилище
- $('#clear-completed').on('click', function () {
- $('li.checked').remove();
- tasks.splice
- });
- */
